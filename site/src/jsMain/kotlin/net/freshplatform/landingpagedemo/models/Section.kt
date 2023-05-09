@@ -3,8 +3,6 @@ package net.freshplatform.landingpagedemo.models
 import androidx.compose.runtime.Composable
 import net.freshplatform.landingpagedemo.sections.MainSection
 
-const val SECTION_TO_TAKE = 6
-
 enum class Section(
     val id: String,
     val title: String,
@@ -67,5 +65,8 @@ enum class Section(
         subTitle = "",
         path = "#achievements",
         content = {MainSection()}
-    ),
+    );
+    companion object {
+        const val SECTION_TO_TAKE = 6
+    }
 }
