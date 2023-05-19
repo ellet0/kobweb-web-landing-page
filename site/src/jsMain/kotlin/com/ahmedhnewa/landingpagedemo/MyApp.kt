@@ -1,4 +1,4 @@
-package net.freshplatform.landingpagedemo
+package com.ahmedhnewa.landingpagedemo
 
 import androidx.compose.runtime.*
 import com.varabyte.kobweb.compose.ui.modifiers.*

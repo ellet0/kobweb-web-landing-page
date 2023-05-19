@@ -1,11 +1,11 @@
-package net.freshplatform.landingpagedemo.models
+package com.ahmedhnewa.landingpagedemo.models
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxHeight
 import com.varabyte.kobweb.compose.ui.modifiers.height
-import net.freshplatform.landingpagedemo.sections.main.MainSection
-import net.freshplatform.landingpagedemo.utils.constants.Constants
+import com.ahmedhnewa.landingpagedemo.sections.main.MainSection
+import com.ahmedhnewa.landingpagedemo.utils.constants.Constants
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.Text
 

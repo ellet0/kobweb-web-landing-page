@@ -1,4 +1,4 @@
-package net.freshplatform.landingpagedemo.utils.extensions
+package com.ahmedhnewa.landingpagedemo.utils.extensions
 
 fun String.removeCharAtIndex(index: Int): String {
     val string = this

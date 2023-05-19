@@ -1,4 +1,4 @@
-package net.freshplatform.landingpagedemo.models
+package com.ahmedhnewa.landingpagedemo.models
 
 import com.varabyte.kobweb.compose.ui.graphics.Color.Companion.rgb
 import org.jetbrains.compose.web.css.CSSColorValue

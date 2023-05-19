@@ -1,4 +1,4 @@
-package net.freshplatform.landingpagedemo.sections.main
+package com.ahmedhnewa.landingpagedemo.sections.main
 
 import androidx.compose.runtime.*
 import com.varabyte.kobweb.compose.css.*
@@ -26,13 +26,13 @@ import com.varabyte.kobweb.silk.components.style.toAttrs
 import com.varabyte.kobweb.silk.components.style.toModifier
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import kotlinx.coroutines.delay
-import net.freshplatform.landingpagedemo.components.Header
-import net.freshplatform.landingpagedemo.models.Section
-import net.freshplatform.landingpagedemo.models.Theme
-import net.freshplatform.landingpagedemo.sections.main.compoments.SocialBar
-import net.freshplatform.landingpagedemo.utils.constants.Constants
-import net.freshplatform.landingpagedemo.utils.constants.Res
-import net.freshplatform.landingpagedemo.utils.extensions.removeCharAtIndex
+import com.ahmedhnewa.landingpagedemo.components.Header
+import com.ahmedhnewa.landingpagedemo.models.Section
+import com.ahmedhnewa.landingpagedemo.models.Theme
+import com.ahmedhnewa.landingpagedemo.sections.main.compoments.SocialBar
+import com.ahmedhnewa.landingpagedemo.utils.constants.Constants
+import com.ahmedhnewa.landingpagedemo.utils.constants.Res
+import com.ahmedhnewa.landingpagedemo.utils.extensions.removeCharAtIndex
 import org.jetbrains.compose.web.ExperimentalComposeWebApi
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.Button

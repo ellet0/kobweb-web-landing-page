@@ -1,4 +1,4 @@
-package net.freshplatform.landingpagedemo.utils.constants
+package com.ahmedhnewa.landingpagedemo.utils.constants
 
 object Res {
     object Assets {

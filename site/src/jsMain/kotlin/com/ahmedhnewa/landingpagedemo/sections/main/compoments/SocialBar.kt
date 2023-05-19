@@ -1,4 +1,4 @@
-package net.freshplatform.landingpagedemo.sections.main.compoments
+package com.ahmedhnewa.landingpagedemo.sections.main.compoments
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.css.CSSTransition
@@ -16,8 +16,8 @@ import com.varabyte.kobweb.silk.components.navigation.Link
 import com.varabyte.kobweb.silk.components.style.ComponentStyle
 import com.varabyte.kobweb.silk.components.style.hover
 import com.varabyte.kobweb.silk.components.style.toModifier
-import net.freshplatform.landingpagedemo.models.Theme
-import net.freshplatform.landingpagedemo.utils.constants.Constants
+import com.ahmedhnewa.landingpagedemo.models.Theme
+import com.ahmedhnewa.landingpagedemo.utils.constants.Constants
 import org.jetbrains.compose.web.css.ms
 import org.jetbrains.compose.web.css.px
 

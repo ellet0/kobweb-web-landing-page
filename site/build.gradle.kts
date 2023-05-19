@@ -8,7 +8,7 @@ plugins {
     alias(libs.plugins.kobwebx.markdown)
 }
 
-group = "net.freshplatform.landingpagedemo"
+group = "com.ahmedhnewa.landingpagedemo"
 version = "1.0-SNAPSHOT"
 
 kobweb {

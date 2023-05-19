@@ -1,4 +1,4 @@
-package net.freshplatform.landingpagedemo.utils.constants
+package com.ahmedhnewa.landingpagedemo.utils.constants
 
 object Constants {
 //    const val SECTION_WIDTH = 1920

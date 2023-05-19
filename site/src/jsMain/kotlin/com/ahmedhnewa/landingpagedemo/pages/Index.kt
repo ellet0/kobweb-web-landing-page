@@ -1,4 +1,4 @@
-package net.freshplatform.landingpagedemo.pages
+package com.ahmedhnewa.landingpagedemo.pages
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
@@ -10,8 +10,8 @@ import com.varabyte.kobweb.compose.ui.modifiers.height
 import com.varabyte.kobweb.compose.ui.modifiers.id
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.core.Page
-import net.freshplatform.landingpagedemo.models.Section
-import net.freshplatform.landingpagedemo.utils.constants.Constants
+import com.ahmedhnewa.landingpagedemo.models.Section
+import com.ahmedhnewa.landingpagedemo.utils.constants.Constants
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.Section
 

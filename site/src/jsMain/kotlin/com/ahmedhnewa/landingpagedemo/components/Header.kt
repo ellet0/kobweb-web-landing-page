@@ -1,4 +1,4 @@
-package net.freshplatform.landingpagedemo.components
+package com.ahmedhnewa.landingpagedemo.components
 
 import androidx.compose.runtime.*
 import com.varabyte.kobweb.compose.css.CSSTransition
@@ -20,9 +20,9 @@ import com.varabyte.kobweb.silk.components.layout.breakpoint.displayUntil
 import com.varabyte.kobweb.silk.components.navigation.Link
 import com.varabyte.kobweb.silk.components.style.*
 import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
-import net.freshplatform.landingpagedemo.models.Section
-import net.freshplatform.landingpagedemo.models.Theme
-import net.freshplatform.landingpagedemo.utils.constants.Res
+import com.ahmedhnewa.landingpagedemo.models.Section
+import com.ahmedhnewa.landingpagedemo.models.Theme
+import com.ahmedhnewa.landingpagedemo.utils.constants.Res
 import org.jetbrains.compose.web.ExperimentalComposeWebApi
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.Nav
