@@ -1,7 +1,13 @@
 package net.freshplatform.landingpagedemo.models
 
 import androidx.compose.runtime.Composable
-import net.freshplatform.landingpagedemo.sections.MainSection
+import com.varabyte.kobweb.compose.foundation.layout.Box
+import com.varabyte.kobweb.compose.ui.modifiers.fillMaxHeight
+import com.varabyte.kobweb.compose.ui.modifiers.height
+import net.freshplatform.landingpagedemo.sections.main.MainSection
+import net.freshplatform.landingpagedemo.utils.constants.Constants
+import org.jetbrains.compose.web.css.px
+import org.jetbrains.compose.web.dom.Text
 
 enum class Section(
     val id: String,
@@ -15,56 +21,57 @@ enum class Section(
         title = "Home",
         subTitle = "",
         path = "#home",
-        content = {MainSection()}
+        content = { MainSection() }
     ),
     About(
         id = "about",
         title = "About",
         subTitle = "",
         path = "#about",
-        content = {MainSection()}
+
+        content = { Text("Hi") }
     ),
     Service(
         id = "service",
         title = "Service",
         subTitle = "",
         path = "#service",
-        content = {MainSection()}
+        content = { Text("Service") }
     ),
     Portfolio(
         id = "portfolio",
         title = "Portfolio",
         subTitle = "",
         path = "#portfolio",
-        content = {MainSection()}
+        content = { Text("Portfolio") }
     ),
     Experience(
         id = "experience",
         title = "Experience",
         subTitle = "",
         path = "#experience",
-        content = {MainSection()}
+        content = { Text("Experience") }
     ),
     Contact(
         id = "contact",
         title = "Contact",
         subTitle = "",
         path = "#contact",
-        content = {MainSection()}
+        content = { Text("Contact") }
     ),
     Testimonial(
         id = "testimonial",
         title = "Testimonial",
         subTitle = "",
         path = "#testimonial",
-        content = {MainSection()}
+        content = { Text("Testimonial") }
     ),
     Achievements(
         id = "achievements",
         title = "Achievements",
         subTitle = "",
         path = "#achievements",
-        content = {MainSection()}
+        content = { Text("Achievements") }
     );
     companion object {
         const val SECTION_TO_TAKE = 6

@@ -1,14 +1,14 @@
-package net.freshplatform.landingpagedemo.utils
-
-object Constants {
-    const val SECTION_WIDTH = 1920
-    // Also in build.gradle
-    const val FONT_FAMILY = "roboto"
-}
+package net.freshplatform.landingpagedemo.utils.constants
 
 object Res {
     object Assets {
         private const val PATH = "/assets"
+
+        object Images {
+            private const val PATH = "${Assets.PATH}/images"
+            const val MAIN_IMAGE = "$PATH/main_image.png"
+        }
+
         object Svg {
             private const val PATH = "${Assets.PATH}/svg"
             const val BACKGROUND = "$PATH/background.svg"
