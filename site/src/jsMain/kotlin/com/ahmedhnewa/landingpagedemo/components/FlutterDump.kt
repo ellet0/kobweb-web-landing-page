@@ -1,11 +1,6 @@
 package com.ahmedhnewa.landingpagedemo.components
 
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.rememberCoroutineScope
-import kotlinx.coroutines.DelicateCoroutinesApi
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 
 /**
@@ -13,10 +8,12 @@ import kotlinx.coroutines.launch
  * it's just me when I have no energy
  * */
 
+class BuildContext
+
 class Widget
 
 abstract class StatelessWidget {
-    abstract fun build(): Widget
+    abstract fun build(context: BuildContext): Widget
 }
 
 interface SetState {
@@ -25,7 +22,7 @@ interface SetState {
 
 abstract class State<T> : StatelessWidget(), SetState {
     override fun setState(a: () -> Unit) {
-        build()
+        build(context = BuildContext())
     }
 
     open fun initState() {}
@@ -36,7 +33,7 @@ abstract class StatefulWidget {
 }
 
 class AdviceWidget: StatelessWidget() {
-    override fun build(): Widget {
+    override fun build(context: BuildContext): Widget {
         return Widget()
     }
 }
@@ -59,7 +56,7 @@ private class MainSectionWidgetState : State<StatefulWidget>() {
         }
     }
 
-    override fun build(): Widget {
+    override fun build(context: BuildContext): Widget {
         setState { counter = 2 }
         return Widget()
     }

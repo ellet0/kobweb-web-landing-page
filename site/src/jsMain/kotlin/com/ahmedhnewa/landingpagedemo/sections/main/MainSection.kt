@@ -1,6 +1,13 @@
 package com.ahmedhnewa.landingpagedemo.sections.main
 
 import androidx.compose.runtime.*
+import com.ahmedhnewa.landingpagedemo.components.Header
+import com.ahmedhnewa.landingpagedemo.models.Section
+import com.ahmedhnewa.landingpagedemo.models.Theme
+import com.ahmedhnewa.landingpagedemo.sections.main.compoments.SocialBar
+import com.ahmedhnewa.landingpagedemo.utils.constants.Constants
+import com.ahmedhnewa.landingpagedemo.utils.constants.Res
+import com.ahmedhnewa.landingpagedemo.utils.extensions.removeCharAtIndex
 import com.varabyte.kobweb.compose.css.*
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
@@ -24,15 +31,7 @@ import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.components.style.hover
 import com.varabyte.kobweb.silk.components.style.toAttrs
 import com.varabyte.kobweb.silk.components.style.toModifier
-import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import kotlinx.coroutines.delay
-import com.ahmedhnewa.landingpagedemo.components.Header
-import com.ahmedhnewa.landingpagedemo.models.Section
-import com.ahmedhnewa.landingpagedemo.models.Theme
-import com.ahmedhnewa.landingpagedemo.sections.main.compoments.SocialBar
-import com.ahmedhnewa.landingpagedemo.utils.constants.Constants
-import com.ahmedhnewa.landingpagedemo.utils.constants.Res
-import com.ahmedhnewa.landingpagedemo.utils.extensions.removeCharAtIndex
 import org.jetbrains.compose.web.ExperimentalComposeWebApi
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.Button
@@ -41,54 +40,51 @@ import org.jetbrains.compose.web.dom.Text
 
 
 @Composable
-fun MainSection() {
-    Box(
-        contentAlignment = Alignment.TopCenter
-    ) {
-        MainBackground()
-        MainContent()
-    }
+fun MainSection() = Box(
+    contentAlignment = Alignment.TopCenter
+) {
+    MainBackground()
+    MainContent()
 }
 
 @Composable
-private fun MainBackground() {
-    Image(
-        modifier = Modifier.fillMaxSize().objectFit(ObjectFit.Cover),
-        src = Res.Assets.Svg.BACKGROUND,
-        desc = "Background Image For Main Section",
-    )
-}
+private fun MainBackground() = Image(
+    modifier = Modifier.fillMaxSize().objectFit(ObjectFit.Cover),
+    src = Res.Assets.Svg.BACKGROUND,
+    desc = "Background Image For Main Section",
+)
 
 @Composable
-private fun MainContent() {
+private fun MainContent() = Column(
+    modifier = Modifier.fillMaxSize(),
+    verticalArrangement = Arrangement.SpaceBetween, // Not necessary
+    horizontalAlignment = Alignment.CenterHorizontally
+) {
+    Header() // fill max width (80 to 90 percent)
     Column(
         modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.SpaceBetween, // Not necessary
+        verticalArrangement = Arrangement.Bottom,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Header() // fill max width (80 to 90 percent)
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Bottom,
-            horizontalAlignment = Alignment.CenterHorizontally
+        // same content on all screens
+        val content: @Composable () -> Unit = {
+            MainText()
+            MainImage()
+        }
+        val numColumns = numColumns(base = 1, md = 2)
+        // For large screens and above
+        SimpleGrid(
+            modifier = Modifier.displayIf(Breakpoint.LG).fillMaxWidth(80.percent),
+            numColumns = numColumns
         ) {
-            val content: @Composable () -> Unit = {
-                MainText()
-                MainImage()
-            }
-            val numColumns = numColumns(base = 1, md = 2)
-            SimpleGrid(
-                modifier = Modifier.displayIf(Breakpoint.LG).fillMaxWidth(80.percent),
-                numColumns = numColumns
-            ) {
-                content()
-            }
-            SimpleGrid(
-                modifier = Modifier.displayBetween(Breakpoint.SM, Breakpoint.LG).fillMaxWidth(90.percent),
-                numColumns = numColumns
-            ) {
-                content()
-            }
+            content()
+        }
+        // For small - medium screens
+        SimpleGrid(
+            modifier = Modifier.displayBetween(Breakpoint.SM, Breakpoint.LG).fillMaxWidth(90.percent),
+            numColumns = numColumns
+        ) {
+            content()
         }
     }
 }
@@ -251,17 +247,14 @@ val MainImageStyle by ComponentStyle {
 }
 
 @Composable
-fun MainImage() {
-    println(Res.Assets.Images.MAIN_IMAGE)
-    Column(
-        modifier = MainImageStyle.toModifier()
-            .fillMaxSize(80.percent).fillMaxHeight(),
-        verticalArrangement = Arrangement.Bottom
-    ) {
-        Image(
-            modifier = Modifier.fillMaxWidth().objectFit(ObjectFit.Cover),
-            src = Res.Assets.Images.MAIN_IMAGE,
-            desc = "Developer photo"
-        )
-    }
+fun MainImage() = Column(
+    modifier = MainImageStyle.toModifier()
+        .fillMaxSize(80.percent).fillMaxHeight(),
+    verticalArrangement = Arrangement.Bottom
+) {
+    Image(
+        modifier = Modifier.fillMaxWidth().objectFit(ObjectFit.Cover),
+        src = Res.Assets.Images.MAIN,
+        desc = "Developer photo"
+    )
 }

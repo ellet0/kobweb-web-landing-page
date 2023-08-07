@@ -6,13 +6,14 @@ object Res {
 
         object Images {
             private const val PATH = "${Assets.PATH}/images"
-            const val MAIN_IMAGE = "$PATH/main_image.png"
+            const val MAIN = "$PATH/main_image.png"
+            const val ABOUT = "$PATH/about_image.png"
         }
 
         object Svg {
             private const val PATH = "${Assets.PATH}/svg"
-            const val BACKGROUND = "$PATH/background.svg"
             const val LOGO = "$PATH/logo.svg"
+            const val BACKGROUND = "$PATH/background.svg"
         }
     }
 }

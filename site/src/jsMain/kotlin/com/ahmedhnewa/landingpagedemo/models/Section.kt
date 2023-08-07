@@ -1,75 +1,70 @@
 package com.ahmedhnewa.landingpagedemo.models
 
 import androidx.compose.runtime.Composable
-import com.varabyte.kobweb.compose.foundation.layout.Box
-import com.varabyte.kobweb.compose.ui.modifiers.fillMaxHeight
-import com.varabyte.kobweb.compose.ui.modifiers.height
+import com.ahmedhnewa.landingpagedemo.sections.about.AboutSection
 import com.ahmedhnewa.landingpagedemo.sections.main.MainSection
-import com.ahmedhnewa.landingpagedemo.utils.constants.Constants
-import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.Text
 
 enum class Section(
     val id: String,
     val title: String,
-    val subTitle: String,
+    val subtitle: String,
     val path: String,
     val content: @Composable () -> Unit
 ) {
     Home(
         id = "home",
         title = "Home",
-        subTitle = "",
+        subtitle = "",
         path = "#home",
         content = { MainSection() }
     ),
     About(
         id = "about",
         title = "About",
-        subTitle = "",
+        subtitle = "Why Hire Me?",
         path = "#about",
-
-        content = { Text("Hi") }
+        content = { AboutSection() }
     ),
     Service(
         id = "service",
         title = "Service",
-        subTitle = "",
+        subtitle = "",
         path = "#service",
         content = { Text("Service") }
     ),
     Portfolio(
         id = "portfolio",
         title = "Portfolio",
-        subTitle = "",
+        subtitle = "",
         path = "#portfolio",
         content = { Text("Portfolio") }
     ),
     Experience(
         id = "experience",
         title = "Experience",
-        subTitle = "",
+        subtitle = "",
         path = "#experience",
         content = { Text("Experience") }
     ),
     Contact(
         id = "contact",
         title = "Contact",
-        subTitle = "",
+        subtitle = "",
         path = "#contact",
         content = { Text("Contact") }
     ),
     Testimonial(
         id = "testimonial",
         title = "Testimonial",
-        subTitle = "",
+        subtitle = "",
         path = "#testimonial",
         content = { Text("Testimonial") }
     ),
     Achievements(
         id = "achievements",
         title = "Achievements",
-        subTitle = "",
+        subtitle = "",
         path = "#achievements",
         content = { Text("Achievements") }
     );

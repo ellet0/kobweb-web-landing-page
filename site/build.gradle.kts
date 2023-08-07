@@ -14,7 +14,7 @@ version = "1.0-SNAPSHOT"
 kobweb {
     app {
         index {
-            description.set("Powered by Kobweb")
+            description.set("Simple landing page built using kobweb and compose web")
             head.add {
                 styleLink("https://fonts.googleapis.com/css2?family=Roboto&display=swap")
                 styleLink("/assets/css/style.css")
