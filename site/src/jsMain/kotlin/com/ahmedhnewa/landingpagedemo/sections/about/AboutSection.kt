@@ -1,12 +1,13 @@
 package com.ahmedhnewa.landingpagedemo.sections.about
 
-import androidx.compose.runtime.Composable
-import com.ahmedhnewa.landingpagedemo.components.ParagraphText
+import SkillBar
+import androidx.compose.runtime.*
 import com.ahmedhnewa.landingpagedemo.components.SectionTitle
 import com.ahmedhnewa.landingpagedemo.models.Section
 import com.ahmedhnewa.landingpagedemo.models.Theme
-import com.ahmedhnewa.landingpagedemo.sections.about.compoments.SkillBar
 import com.ahmedhnewa.landingpagedemo.sections.about.models.Skills
+import com.ahmedhnewa.landingpagedemo.utils.ObserveViewportEntered
+import com.ahmedhnewa.landingpagedemo.utils.animateNumber
 import com.ahmedhnewa.landingpagedemo.utils.constants.Constants
 import com.ahmedhnewa.landingpagedemo.utils.constants.Res
 import com.varabyte.kobweb.compose.css.FontStyle
@@ -25,6 +26,7 @@ import com.varabyte.kobweb.silk.components.layout.numColumns
 import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.components.style.toModifier
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
+import kotlinx.coroutines.launch
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.P
@@ -72,7 +74,8 @@ private fun AboutImage(modifier: Modifier = Modifier) {
 }
 
 @Composable
-private fun AboutMe(modifier: Modifier = Modifier) {
+private fun AboutMe() {
+
     Column(
         modifier = Modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.Center,
@@ -95,11 +98,48 @@ private fun AboutMe(modifier: Modifier = Modifier) {
         ) {
             Text(Constants.Sections.About.ABOUT_ME_TEXT)
         }
-        Skills.values().forEach {
-            SkillBar(
-                it.title,
-                percentageValue = it.percentageValue
-            )
-        }
+        AboutMeSkills()
+    }
+}
+
+@Composable
+private fun AboutMeSkills() {
+    var viewportEntered by remember { mutableStateOf(false) }
+    val scope = rememberCoroutineScope()
+//    val animatedPercentages = remember { mutableStateOf(MutableList(Skills.values().size) { 0 }) }
+    val animatedPercentages = remember { Skills.animationDefaultValues }
+
+    if (Constants.ANIMATION_ENABLED) {
+        ObserveViewportEntered(
+            sectionId = Section.About.id,
+            distanceFromTop = 600.0,
+            onViewportEntered = {
+                Skills.values().forEach { skill ->
+                    scope.launch {
+                        animateNumber(
+                            number = skill.percentageValue.value.toInt(),
+                            delayTime = 7L,
+                            onUpdate = {
+                                animatedPercentages[skill.ordinal] = it
+                            }
+                        )
+                    }
+                }
+                viewportEntered = true
+            }
+        )
+    }
+
+    Skills.values().forEach { skill ->
+        SkillBar(
+            name = skill.title,
+            index = skill.ordinal,
+            percentageValueBar = if (Constants.ANIMATION_ENABLED)
+                (if (viewportEntered) skill.percentageValue else 0.percent)
+            else skill.percentageValue,
+            animatedPercentageValueText = if (Constants.ANIMATION_ENABLED)
+                (if (viewportEntered) animatedPercentages[skill.ordinal].percent else 0.percent)
+            else skill.percentageValue
+        )
     }
 }

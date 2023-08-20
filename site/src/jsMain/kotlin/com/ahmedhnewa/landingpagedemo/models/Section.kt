@@ -2,7 +2,10 @@ package com.ahmedhnewa.landingpagedemo.models
 
 import androidx.compose.runtime.Composable
 import com.ahmedhnewa.landingpagedemo.sections.about.AboutSection
+import com.ahmedhnewa.landingpagedemo.sections.achievement.AchievementSection
 import com.ahmedhnewa.landingpagedemo.sections.main.MainSection
+import com.ahmedhnewa.landingpagedemo.sections.portfolio.PortfolioSection
+import com.ahmedhnewa.landingpagedemo.sections.service.ServiceSection
 import org.jetbrains.compose.web.dom.Text
 
 enum class Section(
@@ -10,7 +13,7 @@ enum class Section(
     val title: String,
     val subtitle: String,
     val path: String,
-    val content: @Composable () -> Unit
+    val content: @Composable () -> Unit = { Text("No content yet") }
 ) {
     Home(
         id = "home",
@@ -29,16 +32,30 @@ enum class Section(
     Service(
         id = "service",
         title = "Service",
-        subtitle = "",
+        subtitle = "What can I do?",
         path = "#service",
-        content = { Text("Service") }
+        content = { ServiceSection() }
     ),
     Portfolio(
         id = "portfolio",
         title = "Portfolio",
-        subtitle = "",
+        subtitle = "My projects",
         path = "#portfolio",
-        content = { Text("Portfolio") }
+        content = { PortfolioSection() }
+    ),
+    Achievements(
+        id = "achievements",
+        title = "Achievements",
+        subtitle = "",
+        path = "#achievements",
+        content = { AchievementSection() }
+    ),
+    Testimonial(
+        id = "testimonial",
+        title = "Testimonial",
+        subtitle = "",
+        path = "#testimonial",
+        content = { Text("Testimonial") }
     ),
     Experience(
         id = "experience",
@@ -53,22 +70,12 @@ enum class Section(
         subtitle = "",
         path = "#contact",
         content = { Text("Contact") }
-    ),
-    Testimonial(
-        id = "testimonial",
-        title = "Testimonial",
-        subtitle = "",
-        path = "#testimonial",
-        content = { Text("Testimonial") }
-    ),
-    Achievements(
-        id = "achievements",
-        title = "Achievements",
-        subtitle = "",
-        path = "#achievements",
-        content = { Text("Achievements") }
     );
+
     companion object {
-        const val SECTION_TO_TAKE = 6
+//        const val SECTION_TO_TAKE = 6
+
+        // In header
+        val navigationItems = listOf(Home, About, Service, Portfolio, Experience, Contact)
     }
 }

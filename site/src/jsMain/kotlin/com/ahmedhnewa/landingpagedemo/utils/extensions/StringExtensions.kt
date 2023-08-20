@@ -7,3 +7,10 @@ fun String.removeCharAtIndex(index: Int): String {
     }
     return string.substring(0, index) + string.substring(index + 1)
 }
+
+fun String.maximumAtFirst(n: Int): String {
+    if (this.length > n) {
+        return "${this.take(n)}..."
+    }
+    return this.take(n)
+}

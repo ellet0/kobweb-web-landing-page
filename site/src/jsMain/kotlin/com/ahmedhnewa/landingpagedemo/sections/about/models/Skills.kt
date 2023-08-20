@@ -1,5 +1,6 @@
 package com.ahmedhnewa.landingpagedemo.sections.about.models
 
+import androidx.compose.runtime.mutableStateListOf
 import org.jetbrains.compose.web.css.CSSLengthOrPercentageValue
 import org.jetbrains.compose.web.css.percent
 
@@ -30,9 +31,9 @@ enum class Skills(
     Intelligence(
         "Intelligence",
         69.percent
-    ),
-    Understanding(
-        "Understanding",
-        55.percent
-    )
+    );
+    companion object {
+        // should match the length of enum items
+        val animationDefaultValues = mutableStateListOf(0, 0, 0, 0, 0, 0)
+    }
 }

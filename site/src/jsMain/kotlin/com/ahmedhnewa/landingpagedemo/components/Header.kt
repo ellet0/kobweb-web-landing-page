@@ -123,7 +123,7 @@ private fun EndSide(modifier: Modifier = Modifier) {
             .padding(16.px),
         horizontalArrangement = Arrangement.End
     ) {
-        Section.values().take(Section.SECTION_TO_TAKE).forEach { section ->
+        Section.navigationItems.forEach { section ->
             Link(
                 path = section.path,
                 text = section.title,

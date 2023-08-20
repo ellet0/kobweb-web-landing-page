@@ -2,10 +2,10 @@ package com.ahmedhnewa.landingpagedemo.utils.constants
 
 object Constants {
 //    const val SECTION_WIDTH = 1920
-    const val SECTION_MAX_HEIGHT = 1000
+    const val SECTION_MAX_HEIGHT = 1400
     const val ANIMATION_ENABLED = true
 
-    // Also in build.gradle
+    // Also in build.gradle and style.css
     const val FONT_FAMILY = "roboto"
 
     object Sections {

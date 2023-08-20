@@ -8,6 +8,7 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.core.Page
 import com.ahmedhnewa.landingpagedemo.models.Section
+import com.ahmedhnewa.landingpagedemo.sections.achievement.AchievementSection
 import com.ahmedhnewa.landingpagedemo.utils.constants.Constants
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import org.jetbrains.compose.web.css.px
@@ -21,8 +22,14 @@ fun HomePage() {
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Section.values().take(Section.SECTION_TO_TAKE).forEach {
-            Section(Modifier.minHeight(Constants.SECTION_MAX_HEIGHT.px).id(it.id).toAttrs()) {
+        Section.values().forEach {
+            Section(
+                attrs = Modifier
+                    .maxHeight(Constants.SECTION_MAX_HEIGHT.px)
+                    .fillMaxWidth()
+                    .id(it.id)
+                    .toAttrs()
+            ) {
                 it.content()
             }
         }
