@@ -47,7 +47,8 @@ fun PortfolioCard(
     ) {
         Column(
             modifier = Modifier
-                .id("columnParent").then(modifier)
+                .id("columnParent")
+                .then(modifier)
         ) {
             ImageBox(portfolio = portfolio)
             P(
@@ -92,8 +93,11 @@ private fun ImageBox(portfolio: Portfolio) {
             .fillMaxWidth()
             .width(PORTFOLIO_CARD_HEIGHT.px)
     ) {
+        val imageBorderRadius = 4.px
         Image(
-            modifier = Modifier.size(PORTFOLIO_CARD_HEIGHT.px)
+            modifier = Modifier
+                .borderRadius(r = imageBorderRadius)
+                .size(PORTFOLIO_CARD_HEIGHT.px)
                 .objectFit(ObjectFit.Cover),
             src = portfolio.image,
             desc = portfolio.title
@@ -101,6 +105,7 @@ private fun ImageBox(portfolio: Portfolio) {
         Box(
             modifier = Modifier
                 .id("greenOverlay")
+                .borderRadius(r = imageBorderRadius)
                 .height(PORTFOLIO_CARD_HEIGHT.px)
                 .backgroundColor(Color.Companion.argb(a = 0.5f, r = 0, g = 167, b = 142)),
             contentAlignment = Alignment.Center,

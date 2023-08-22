@@ -10,6 +10,7 @@ import com.ahmedhnewa.landingpagedemo.utils.ObserveViewportEntered
 import com.ahmedhnewa.landingpagedemo.utils.animateNumber
 import com.ahmedhnewa.landingpagedemo.utils.constants.Constants
 import com.ahmedhnewa.landingpagedemo.utils.constants.Res
+import com.ahmedhnewa.landingpagedemo.utils.constants.SectionsConstants
 import com.varabyte.kobweb.compose.css.FontStyle
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
@@ -47,13 +48,13 @@ fun AboutSection() = Box(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         SimpleGrid(
-            numColumns = numColumns(base = 1, md = 2),
+            numColumns = numColumns(base = 1, lg = 2),
             modifier = Modifier.fillMaxWidth(
-                if (breakpoint >= Breakpoint.MD) 90.percent
-                else 100.percent
+                if (breakpoint >= Breakpoint.MD) 100.percent
+                else 90.percent
             )
         ) {
-            AboutImage(modifier = Modifier.displayIf(Breakpoint.MD))
+            AboutImage(modifier = Modifier.displayIf(Breakpoint.LG))
             AboutMe()
         }
     }
@@ -96,7 +97,7 @@ private fun AboutMe() {
                 .color(Theme.Secondary.rgb)
                 .toAttrs()
         ) {
-            Text(Constants.Sections.About.ABOUT_ME_TEXT)
+            Text(SectionsConstants.About.ABOUT_ME_TEXT)
         }
         AboutMeSkills()
     }

@@ -5,6 +5,7 @@ import com.ahmedhnewa.landingpagedemo.components.Header
 import com.ahmedhnewa.landingpagedemo.models.Section
 import com.ahmedhnewa.landingpagedemo.models.Theme
 import com.ahmedhnewa.landingpagedemo.sections.main.compoments.SocialBar
+import com.ahmedhnewa.landingpagedemo.styles.MainButtonStyle
 import com.ahmedhnewa.landingpagedemo.utils.constants.Constants
 import com.ahmedhnewa.landingpagedemo.utils.constants.Res
 import com.ahmedhnewa.landingpagedemo.utils.extensions.removeCharAtIndex
@@ -107,17 +108,6 @@ val helloImTextStyle by ComponentStyle {
     }
 }
 
-val MainButtonStyle by ComponentStyle {
-    base {
-        Modifier.width(100.px)
-            .transition(CSSTransition(property = "width", duration = 200.ms))
-    }
-    hover {
-        Modifier.width(120.px)
-    }
-
-}
-
 @Composable
 private fun MainText() {
     var helloImText by remember { mutableStateOf("Hello, I'm") }
@@ -207,12 +197,6 @@ private fun MainText() {
             Button(
                 attrs = MainButtonStyle.toModifier()
                     .margin(bottom = 20.px, top = 10.px)
-                    .height(40.px)
-                    .border(width = 0.px)
-                    .borderRadius(5.px)
-                    .backgroundColor(Theme.Primary.rgb)
-                    .color(Colors.White)
-                    .cursor(Cursor.Pointer)
                     .toAttrs()
             ) {
                 Link(

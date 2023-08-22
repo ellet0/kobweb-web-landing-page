@@ -13,6 +13,17 @@ object Res {
             const val ALRAYADA_PROJECT = "$PATH/alrayada_project.png"
             const val WALLPAPER_ENGINE = "$PATH/wallpaper_engine.jpg"
             const val AHMED_HNEWA_SOCIAL_MEDIA = "$PATH/ahmedhnewa_social_media.png"
+
+            object Testimonials {
+                private const val PATH = "${Images.PATH}/testimonials"
+
+                const val ALBERT_EINSTEIN = "$PATH/albert_einstein.jpg"
+                const val STEVE_JOBS = "$PATH/steve_jobs.jpeg"
+                const val THOMAS_EDISON = "$PATH/thomas_edison.jpg"
+                const val JOHN_WICK = "$PATH/john_wick.jpg"
+                const val UNCLE_BOB = "$PATH/uncle_bob.png"
+                const val MARCIN_IWINSKI = "$PATH/marcin_iwinski.jpg"
+            }
         }
 
         object Svg {

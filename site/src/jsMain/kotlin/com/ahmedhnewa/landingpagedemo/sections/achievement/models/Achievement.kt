@@ -19,7 +19,7 @@ enum class Achievement(
     ),
     Satisfied(
         icon = "face-smile",
-        number = 4,
+        number = 6,
         description = "Satisfied Clients"
     ),
     Team(

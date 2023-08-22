@@ -23,6 +23,7 @@ import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.components.style.toModifier
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import kotlinx.browser.document
+import kotlinx.browser.window
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 import org.w3c.dom.Element
@@ -69,9 +70,9 @@ private fun PortfolioCards(modifier: Modifier = Modifier, breakpoint: Breakpoint
             .id("scrollablePortfolioCards")
             .fillMaxWidth()
             .maxWidth(
-                if (breakpoint > Breakpoint.MD) 950.px // for three cards with margins
-                else if (breakpoint > Breakpoint.SM) 625.px // for two cards with margins
-                else PORTFOLIO_CARD_HEIGHT.px // for one
+                if (breakpoint > Breakpoint.MD) (PORTFOLIO_CARD_HEIGHT * 3 + 50).px // for three cards with margins
+                else if (breakpoint > Breakpoint.SM) (PORTFOLIO_CARD_HEIGHT * 2 + 25).px // for two cards with margins
+                else (PORTFOLIO_CARD_HEIGHT).px // for one
             )
             .overflow(Overflow.Hidden)
             .scrollBehavior(ScrollBehavior.Smooth)
@@ -81,7 +82,8 @@ private fun PortfolioCards(modifier: Modifier = Modifier, breakpoint: Breakpoint
         portfolios.forEach { portfolio ->
             val isLast = portfolio == portfolios.last()
             PortfolioCard(
-                modifier = Modifier.margin(right = if (isLast) 0.px else 25.px),
+                modifier = Modifier
+                    .margin(right = if (isLast) 0.px else 25.px),
                 portfolio = portfolio
             )
         }

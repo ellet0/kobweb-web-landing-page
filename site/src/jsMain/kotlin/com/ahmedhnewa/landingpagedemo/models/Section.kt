@@ -3,9 +3,12 @@ package com.ahmedhnewa.landingpagedemo.models
 import androidx.compose.runtime.Composable
 import com.ahmedhnewa.landingpagedemo.sections.about.AboutSection
 import com.ahmedhnewa.landingpagedemo.sections.achievement.AchievementSection
+import com.ahmedhnewa.landingpagedemo.sections.contact.ContactSection
+import com.ahmedhnewa.landingpagedemo.sections.experience.ExperienceSection
 import com.ahmedhnewa.landingpagedemo.sections.main.MainSection
 import com.ahmedhnewa.landingpagedemo.sections.portfolio.PortfolioSection
 import com.ahmedhnewa.landingpagedemo.sections.service.ServiceSection
+import com.ahmedhnewa.landingpagedemo.sections.testimonial.TestimonialSection
 import org.jetbrains.compose.web.dom.Text
 
 enum class Section(
@@ -53,23 +56,23 @@ enum class Section(
     Testimonial(
         id = "testimonial",
         title = "Testimonial",
-        subtitle = "",
+        subtitle = "Customers reviews (fake)",
         path = "#testimonial",
-        content = { Text("Testimonial") }
+        content = { TestimonialSection() }
     ),
     Experience(
         id = "experience",
         title = "Experience",
-        subtitle = "",
+        subtitle = "Work Experience (fake)",
         path = "#experience",
-        content = { Text("Experience") }
+        content = { ExperienceSection() }
     ),
     Contact(
         id = "contact",
         title = "Contact",
-        subtitle = "",
+        subtitle = "Get in Touch",
         path = "#contact",
-        content = { Text("Contact") }
+        content = { ContactSection() }
     );
 
     companion object {

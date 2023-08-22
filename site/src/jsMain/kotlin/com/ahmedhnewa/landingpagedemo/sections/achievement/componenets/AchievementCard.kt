@@ -52,7 +52,7 @@ fun AchievementCard(
                 Text(
                     if (achievement == Achievement.Completed)
                         "${animatedNumber}+"
-                    else "${animatedNumber}"
+                    else "$animatedNumber"
                 )
             }
             P(

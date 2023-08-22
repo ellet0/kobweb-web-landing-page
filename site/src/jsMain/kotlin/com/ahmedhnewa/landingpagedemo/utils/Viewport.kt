@@ -15,7 +15,8 @@ fun ObserveViewportEntered(
     val listener = remember {
         EventListener {
             val sectionElement =
-                document.getElementById(sectionId) ?: throw NullPointerException("Can't find any element with id = $sectionId")
+                document.getElementById(sectionId)
+                    ?: throw NullPointerException("Can't find any element with id = $sectionId")
             val top = sectionElement.getBoundingClientRect().top
             if (top < distanceFromTop) {
                 viewportEntered = true
