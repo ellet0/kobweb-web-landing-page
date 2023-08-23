@@ -13,6 +13,9 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.silk.components.graphics.Image
+import com.varabyte.kobweb.silk.components.layout.breakpoint.displayIf
+import com.varabyte.kobweb.silk.components.layout.breakpoint.displayIfAtLeast
+import com.varabyte.kobweb.silk.components.layout.breakpoint.displayUntil
 import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
@@ -78,17 +81,17 @@ fun TestimonialCard(
                     ) {
                         Text(testimonial.profession)
                     }
-                    if (breakpoint <= Breakpoint.MD) {
-                        RatingBar(
-                            value = 5,
-                            modifier = Modifier
-                                .margin(top = 10.px)
-                        )
-                    }
+                    RatingBar(
+                        value = 5,
+                        modifier = Modifier
+                            .displayUntil(Breakpoint.LG)
+                            .margin(top = 10.px)
+                    )
                 }
-                if (breakpoint > Breakpoint.MD) {
-                    RatingBar(value = 5)
-                }
+                RatingBar(
+                    modifier = Modifier.displayIfAtLeast(Breakpoint.LG),
+                    value = 5
+                )
             }
             P(
                 attrs = Modifier

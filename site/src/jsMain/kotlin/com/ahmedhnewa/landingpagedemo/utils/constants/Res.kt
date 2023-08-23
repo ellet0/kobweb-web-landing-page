@@ -2,7 +2,7 @@ package com.ahmedhnewa.landingpagedemo.utils.constants
 
 object Res {
     object Assets {
-        private const val PATH = "/assets"
+        private const val PATH = "assets"
 
         object Images {
             private const val PATH = "${Assets.PATH}/images"

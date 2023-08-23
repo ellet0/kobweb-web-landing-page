@@ -7,14 +7,12 @@ import com.ahmedhnewa.landingpagedemo.sections.experience.componenets.Experience
 import com.ahmedhnewa.landingpagedemo.sections.experience.models.Experience
 import com.ahmedhnewa.landingpagedemo.utils.ObserveViewportEntered
 import com.ahmedhnewa.landingpagedemo.utils.constants.Constants
-import com.varabyte.kobweb.compose.css.Overflow
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxWidth
 import com.varabyte.kobweb.compose.ui.modifiers.margin
-import com.varabyte.kobweb.compose.ui.modifiers.overflow
 import com.varabyte.kobweb.compose.ui.modifiers.padding
 import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint

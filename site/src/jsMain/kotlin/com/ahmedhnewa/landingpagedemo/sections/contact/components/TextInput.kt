@@ -31,8 +31,10 @@ import org.jetbrains.compose.web.dom.TextArea
 val MyTextInputStyle by ComponentStyle {
     base {
         Modifier
-            .border(width = 1.px, style = LineStyle.Solid, color = Theme.LightGray.rgb)
+            .border(width = 2.px, style = LineStyle.Solid, color = Theme.LightGray.rgb)
             .borderRadius(r = 6.px)
+            .fontSize(18.px)
+            .padding(12.px)
             .transition(
                 CSSTransition(property = "border-color", duration = 150.ms),
                 CSSTransition(property = "border-shadow", duration = 200.ms),
@@ -41,8 +43,7 @@ val MyTextInputStyle by ComponentStyle {
     placeholderShown {
         Modifier
             .color(Color("#6c757d"))
-            .fontSize(14.px)
-            .padding(8.px)
+//            .fontSize(14.px)
             .fontWeight(FontWeight.Normal)
     }
     focus {
@@ -90,11 +91,11 @@ fun MyTextInput(
             .attrsModifier {
                 attr("placeholder", hintText)
                 attr("required", required.toString())
+                attr("value", value) // doesn't work for TextArea
             }
             .then(modifier)
         if (textArea) {
             TextArea(
-                value = value,
                 attrs = sharedModifier
                     .resize(Resize.Vertical)
                     .toAttrs()
@@ -104,9 +105,6 @@ fun MyTextInput(
         Input(
             type = type,
             attrs = sharedModifier
-                .attrsModifier {
-                    attr("value", value)
-                }
                 .toAttrs(),
         )
     }

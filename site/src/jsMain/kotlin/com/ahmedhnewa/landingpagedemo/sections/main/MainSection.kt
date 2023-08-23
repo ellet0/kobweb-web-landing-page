@@ -1,9 +1,10 @@
 package com.ahmedhnewa.landingpagedemo.sections.main
 
 import androidx.compose.runtime.*
-import com.ahmedhnewa.landingpagedemo.components.Header
+import com.ahmedhnewa.landingpagedemo.sections.main.compoments.MyHeader
 import com.ahmedhnewa.landingpagedemo.models.Section
 import com.ahmedhnewa.landingpagedemo.models.Theme
+import com.ahmedhnewa.landingpagedemo.sections.main.compoments.MobileNavigation
 import com.ahmedhnewa.landingpagedemo.sections.main.compoments.SocialBar
 import com.ahmedhnewa.landingpagedemo.styles.MainButtonStyle
 import com.ahmedhnewa.landingpagedemo.utils.constants.Constants
@@ -14,17 +15,15 @@ import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.Row
-import com.varabyte.kobweb.compose.ui.Alignment
-import com.varabyte.kobweb.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.*
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
-import com.varabyte.kobweb.compose.ui.styleModifier
-import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.navigation.OpenLinkStrategy
 import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.layout.SimpleGrid
 import com.varabyte.kobweb.silk.components.layout.breakpoint.displayBetween
-import com.varabyte.kobweb.silk.components.layout.breakpoint.displayIf
+import com.varabyte.kobweb.silk.components.layout.breakpoint.displayIfAtLeast
+import com.varabyte.kobweb.silk.components.layout.breakpoint.displayUntil
 import com.varabyte.kobweb.silk.components.layout.numColumns
 import com.varabyte.kobweb.silk.components.navigation.Link
 import com.varabyte.kobweb.silk.components.style.ComponentStyle
@@ -61,7 +60,8 @@ private fun MainContent() = Column(
     verticalArrangement = Arrangement.SpaceBetween, // Not necessary
     horizontalAlignment = Alignment.CenterHorizontally
 ) {
-    Header() // fill max width (80 to 90 percent)
+    MyHeader() // fill max width (80 to 90 percent)
+    MobileNavigation(modifier = Modifier.displayUntil(Breakpoint.LG))
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Bottom,
@@ -75,7 +75,7 @@ private fun MainContent() = Column(
         val numColumns = numColumns(base = 1, md = 2)
         // For large screens and above
         SimpleGrid(
-            modifier = Modifier.displayIf(Breakpoint.LG).fillMaxWidth(80.percent),
+            modifier = Modifier.displayIfAtLeast(Breakpoint.LG).fillMaxWidth(80.percent),
             numColumns = numColumns
         ) {
             content()
@@ -143,7 +143,7 @@ private fun MainText() {
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        SocialBar(modifier = Modifier.displayIf(Breakpoint.LG))
+        SocialBar(modifier = Modifier.displayIfAtLeast(Breakpoint.LG))
         Column {
             P(
                 attrs = helloImTextStyle.toAttrs()
@@ -152,7 +152,7 @@ private fun MainText() {
             }
             P(
                 attrs = Modifier
-                    .displayIf(Breakpoint.LG)
+                    .displayIfAtLeast(Breakpoint.LG)
                     .margin(top = 20.px, bottom = 0.px)
                     .fontSize(68.px)
                     .fontWeight(FontWeight.Bolder)

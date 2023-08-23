@@ -1,6 +1,7 @@
 package com.ahmedhnewa.landingpagedemo.utils
 
 import androidx.compose.runtime.*
+import com.ahmedhnewa.landingpagedemo.utils.constants.Constants
 import kotlinx.browser.document
 import kotlinx.browser.window
 import org.w3c.dom.events.EventListener
@@ -9,7 +10,7 @@ import org.w3c.dom.events.EventListener
 fun ObserveViewportEntered(
     sectionId: String,
     distanceFromTop: Double,
-    onViewportEntered: () -> Unit = {}
+    onViewportEntered: () -> Unit
 ) {
     var viewportEntered by remember { mutableStateOf(false) }
     val listener = remember {

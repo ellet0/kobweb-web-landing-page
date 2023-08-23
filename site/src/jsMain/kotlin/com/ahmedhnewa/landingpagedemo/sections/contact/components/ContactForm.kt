@@ -6,6 +6,7 @@ import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.attrsModifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
@@ -18,7 +19,12 @@ import org.jetbrains.compose.web.dom.TextInput
 
 @Composable
 fun ContactForm() = Form(
-    action = "",
+    action = "https://formspree.io/f/xjvqwrjq",
+    attrs = Modifier
+        .attrsModifier {
+            attr("method", "POST")
+        }
+        .toAttrs()
 ) {
     val breakpoint = rememberBreakpoint()
 
@@ -30,6 +36,9 @@ fun ContactForm() = Form(
             type = InputType.Text,
             breakpoint = breakpoint,
             modifier = Modifier.margin(bottom = 12.px)
+                .attrsModifier {
+                    attr("name", "Name")
+                }
         )
         MyTextInput(
             id = "emailInput",
@@ -38,6 +47,9 @@ fun ContactForm() = Form(
             type = InputType.Email,
             breakpoint = breakpoint,
             modifier = Modifier.margin(bottom = 12.px)
+                .attrsModifier {
+                    attr("name", "Email")
+                }
         )
         MyTextInput(
             id = "messageInput",
@@ -47,6 +59,9 @@ fun ContactForm() = Form(
             breakpoint = breakpoint,
             modifier = Modifier.margin(bottom = 20.px)
                 .height(150.px)
+                .attrsModifier {
+                    attr("name", "Message")
+                }
         )
         Box(
             modifier = Modifier.fillMaxWidth(),

@@ -23,6 +23,7 @@ import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.layout.SimpleGrid
 import com.varabyte.kobweb.silk.components.layout.breakpoint.displayIf
+import com.varabyte.kobweb.silk.components.layout.breakpoint.displayIfAtLeast
 import com.varabyte.kobweb.silk.components.layout.numColumns
 import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.components.style.toModifier
@@ -54,7 +55,7 @@ fun AboutSection() = Box(
                 else 90.percent
             )
         ) {
-            AboutImage(modifier = Modifier.displayIf(Breakpoint.LG))
+            AboutImage(modifier = Modifier.displayIfAtLeast(Breakpoint.LG))
             AboutMe()
         }
     }

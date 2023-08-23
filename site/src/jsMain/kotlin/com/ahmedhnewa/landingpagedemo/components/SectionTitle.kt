@@ -1,9 +1,11 @@
 package com.ahmedhnewa.landingpagedemo.components
 
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import com.ahmedhnewa.landingpagedemo.models.Section
 import com.ahmedhnewa.landingpagedemo.models.Theme
+import com.ahmedhnewa.landingpagedemo.utils.ObserveViewportEntered
 import com.ahmedhnewa.landingpagedemo.utils.constants.Constants
+import com.varabyte.kobweb.compose.css.CSSTransition
 import com.varabyte.kobweb.compose.css.FontSize
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.css.TextAlign
@@ -13,6 +15,8 @@ import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Text
@@ -23,6 +27,25 @@ fun SectionTitle(
     section: Section,
     alignment: Alignment.Horizontal = Alignment.Start
 ) {
+    val scope = rememberCoroutineScope()
+    var titleMargin by remember { mutableStateOf(50) }
+    var subtitleMargin by remember { mutableStateOf(50) }
+
+    if (Constants.ANIMATION_ENABLED) {
+        ObserveViewportEntered(
+            sectionId = section.id,
+            distanceFromTop = 600.0,
+        ) {
+            scope.launch {
+                subtitleMargin = 0
+                if (alignment == Alignment.Start) {
+                    delay(25)
+                }
+                titleMargin = 0
+            }
+        }
+    }
+
     val textAlign = when (alignment) {
         Alignment.CenterHorizontally -> TextAlign.Center
         Alignment.End -> TextAlign.End
@@ -31,21 +54,38 @@ fun SectionTitle(
     Column(modifier = modifier, horizontalAlignment = alignment) {
         ParagraphText(
             section.title,
-            modifier = Modifier.fillMaxWidth()
-                .textAlign(
-                    textAlign
+            modifier = Modifier
+                .fillMaxWidth()
+                .textAlign(textAlign)
+                .margin(
+                    left = if (Constants.ANIMATION_ENABLED) titleMargin.px else 0.px,
+                    top = 0.px,
+                    bottom = 0.px
                 )
-                .margin(topBottom = 0.px),
+                .transition(
+                    CSSTransition(property = "margin", duration = 300.ms)
+                ),
             fontSize = 25.px,
             color = Theme.Primary.rgb
         )
         ParagraphText(
             section.subtitle,
-            modifier = Modifier.fillMaxWidth()
-                .textAlign(
-                    textAlign
+            modifier = Modifier
+                .fillMaxWidth()
+                .textAlign(textAlign)
+                .margin(
+                    left = if (Constants.ANIMATION_ENABLED)
+                        if (alignment == Alignment.Start) subtitleMargin.px else 0.px
+                    else 0.px,
+                    right = if (Constants.ANIMATION_ENABLED)
+                        if (alignment == Alignment.CenterHorizontally) subtitleMargin.px else 0.px
+                    else 0.px,
+                    bottom = 10.px,
+                    top = 0.px
                 )
-                .margin(bottom = 10.px, top = 0.px)
+                .transition(
+                    CSSTransition(property = "margin", duration = 300.ms)
+                )
                 .fontWeight(FontWeight.Bold),
             fontSize = 40.px,
         )

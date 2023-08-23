@@ -16,6 +16,8 @@ import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.silk.components.layout.SimpleGrid
+import com.varabyte.kobweb.silk.components.layout.breakpoint.displayIf
+import com.varabyte.kobweb.silk.components.layout.breakpoint.displayIfAtLeast
 import com.varabyte.kobweb.silk.components.layout.numColumns
 import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
 import org.jetbrains.compose.web.css.*
@@ -106,12 +108,11 @@ private fun ExperienceSecondPart(
         .then(modifier),
     verticalAlignment = Alignment.CenterVertically
 ) {
-    if (breakpoint >= Breakpoint.MD) {
-        ExperienceNumber(
-            number = experience.number,
-            isActive = isActive
-        )
-    }
+    ExperienceNumber(
+        modifier = Modifier.displayIfAtLeast(Breakpoint.MD),
+        number = experience.number,
+        isActive = isActive
+    )
     ExperienceDetails(
         modifier = Modifier
             .margin(
@@ -133,12 +134,14 @@ private fun ExperienceSecondPart(
 
 @Composable
 private fun ExperienceNumber(
+    modifier: Modifier = Modifier,
     number: String,
     isActive: Boolean,
 ) = Box(
     modifier = Modifier
         .margin(left = 14.px)
-        .fillMaxHeight(),
+        .fillMaxHeight()
+        .then(modifier),
     contentAlignment = Alignment.Center
 ) {
     Box(
