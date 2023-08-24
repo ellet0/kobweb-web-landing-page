@@ -22,8 +22,8 @@ val ServiceCardStyle by ComponentStyle {
             .borderRadius(r = 6.px)
             .backgroundColor(Colors.White)
             .transition(
-                CSSTransition(property = "border", duration = 200.ms),
-                CSSTransition(property = "background", duration = 200.ms),
+                CSSTransition(property = "border", duration = 100.ms),
+                CSSTransition(property = "background", duration = 100.ms),
             )
     }
     hover {
@@ -41,7 +41,7 @@ val ServiceCardStyle by ComponentStyle {
         Modifier
             .backgroundColor(Colors.Transparent)
             .transition(
-                CSSTransition(property = "background", duration = 200.ms),
+                CSSTransition(property = "background", duration = 100.ms),
             )
     }
 
@@ -53,7 +53,7 @@ val ServiceCardStyle by ComponentStyle {
         Modifier
             .color(Theme.Secondary.rgb)
             .transition(
-                CSSTransition(property = "color", duration = 200.ms),
+                CSSTransition(property = "color", duration = 100.ms),
             )
     }
 
