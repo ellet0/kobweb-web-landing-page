@@ -38,6 +38,7 @@ fun SectionTitle(
         ) {
             scope.launch {
                 subtitleMargin = 0
+
                 if (alignment == Alignment.Start) {
                     delay(25)
                 }
@@ -55,7 +56,6 @@ fun SectionTitle(
         ParagraphText(
             section.title,
             modifier = Modifier
-                .fillMaxWidth()
                 .textAlign(textAlign)
                 .margin(
                     left = if (Constants.ANIMATION_ENABLED) titleMargin.px else 0.px,
@@ -71,7 +71,6 @@ fun SectionTitle(
         ParagraphText(
             section.subtitle,
             modifier = Modifier
-                .fillMaxWidth()
                 .textAlign(textAlign)
                 .margin(
                     left = if (Constants.ANIMATION_ENABLED)
@@ -87,7 +86,7 @@ fun SectionTitle(
                     CSSTransition(property = "margin", duration = 300.ms)
                 )
                 .fontWeight(FontWeight.Bold),
-            fontSize = 40.px,
+            fontSize = 35.px,
         )
         Box(
             modifier = Modifier.height(2.px)

@@ -43,11 +43,11 @@ fun HomePage() {
                     it.content()
                 }
             }
-            Footer(
-                attrs = Modifier.fillMaxWidth().toAttrs()
-            ) {
-                FooterSection()
-            }
+//            Footer(
+//                attrs = Modifier.fillMaxWidth().toAttrs()
+//            ) {
+//                FooterSection()
+//            }
         }
     }
 }

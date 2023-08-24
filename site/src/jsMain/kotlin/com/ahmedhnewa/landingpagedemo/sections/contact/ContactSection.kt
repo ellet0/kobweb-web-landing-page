@@ -61,7 +61,6 @@ private fun ContactContent() {
     ) {
         SectionTitle(
             modifier = Modifier
-                .fillMaxWidth()
                 .margin(bottom = 20.px)
                 .transform {
                     if (!Constants.ANIMATION_ENABLED) return@transform

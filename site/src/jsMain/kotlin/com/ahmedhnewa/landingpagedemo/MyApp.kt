@@ -22,7 +22,8 @@ import org.jetbrains.compose.web.css.*
 fun updateTheme(ctx: InitSilkContext) {
     ctx.stylesheet.apply {
         registerBaseStyle("body") {
-            Modifier.fontFamily(
+            Modifier
+                .fontFamily(
                 "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
                 "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "sans-serif"
             )

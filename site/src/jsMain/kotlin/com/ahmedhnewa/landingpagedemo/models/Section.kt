@@ -76,7 +76,6 @@ enum class Section(
     );
 
     companion object {
-//        const val SECTION_TO_TAKE = 6
 
         // In header
         val navigationItems = listOf(Home, About, Service, Portfolio, Experience, Contact)
