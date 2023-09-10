@@ -1,8 +1,7 @@
 package com.ahmedhnewa.landingpagedemo.utils.constants
 
 object Constants {
-    const val SECTION_WIDTH = 1920
-    const val SECTION_MAX_HEIGHT = 3500
+    const val SECTION_MAX_HEIGHT = 5000
     const val ANIMATION_ENABLED = true
 
     // Also in build.gradle and style.css

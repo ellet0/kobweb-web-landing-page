@@ -11,6 +11,7 @@ import com.ahmedhnewa.landingpagedemo.utils.constants.Constants
 import com.ahmedhnewa.landingpagedemo.utils.constants.Res
 import com.ahmedhnewa.landingpagedemo.utils.extensions.removeCharAtIndex
 import com.varabyte.kobweb.compose.css.*
+import com.varabyte.kobweb.compose.css.functions.grayscale
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
@@ -212,20 +213,15 @@ private fun MainText() {
     }
 }
 
-@OptIn(ExperimentalComposeWebApi::class)
 val MainImageStyle by ComponentStyle {
     base {
         Modifier
-            .styleModifier {
-                filter { grayscale(100.percent) }
-            }
-            .transition(CSSTransition(property = "filter", duration = 200.ms))
+            .filter(grayscale(100.percent))
+            .transition(CSSTransition(property = "filter", duration = 240.ms))
     }
     hover {
         Modifier
-            .styleModifier {
-                filter { grayscale(0.percent) }
-            }
+            .filter(grayscale(0.percent))
     }
 
 }

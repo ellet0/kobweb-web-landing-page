@@ -1,6 +1,7 @@
 package com.ahmedhnewa.landingpagedemo.sections.testimonial.componenets
 
 import androidx.compose.runtime.Composable
+import com.ahmedhnewa.landingpagedemo.components.stars.RatingBar
 import com.ahmedhnewa.landingpagedemo.models.Theme
 import com.ahmedhnewa.landingpagedemo.sections.testimonial.models.Testimonial
 import com.ahmedhnewa.landingpagedemo.utils.constants.Constants
@@ -10,10 +11,10 @@ import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.attrsModifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.silk.components.graphics.Image
-import com.varabyte.kobweb.silk.components.layout.breakpoint.displayIf
 import com.varabyte.kobweb.silk.components.layout.breakpoint.displayIfAtLeast
 import com.varabyte.kobweb.silk.components.layout.breakpoint.displayUntil
 import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
@@ -46,7 +47,10 @@ fun TestimonialCard(
                     topRight = 60.px,
                     bottomLeft = 60.px,
                     bottomRight = 0.px
-                ),
+                )
+                .attrsModifier {
+                    attr("loading", "lazy")
+                },
             src = testimonial.image,
             desc = "Avatar Image"
         )

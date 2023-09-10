@@ -1,4 +1,4 @@
-package com.ahmedhnewa.landingpagedemo.sections.testimonial.componenets
+package com.ahmedhnewa.landingpagedemo.components.stars
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.ui.Modifier

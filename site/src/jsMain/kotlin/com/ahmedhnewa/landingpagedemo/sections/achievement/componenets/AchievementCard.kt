@@ -9,6 +9,7 @@ import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.attrsModifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.silk.components.icons.fa.FaCheck
@@ -34,7 +35,10 @@ fun AchievementCard(
             name = achievement.icon,
             modifier = Modifier
                 .title("Achievement icon")
-                .margin(right = 20.px),
+                .margin(right = 20.px)
+                .attrsModifier {
+                    attr("alt", "Achievement icon")
+                },
             style = IconCategory.SOLID,
             size = IconSize.X3
         )

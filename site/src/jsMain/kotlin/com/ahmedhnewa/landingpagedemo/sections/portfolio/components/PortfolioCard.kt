@@ -14,6 +14,7 @@ import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.attrsModifier
 import com.varabyte.kobweb.compose.ui.graphics.Color
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
@@ -98,7 +99,10 @@ private fun ImageBox(portfolio: Portfolio) {
             modifier = Modifier
                 .borderRadius(r = imageBorderRadius)
                 .size(PORTFOLIO_CARD_HEIGHT.px)
-                .objectFit(ObjectFit.Cover),
+                .objectFit(ObjectFit.Cover)
+                .attrsModifier {
+                    attr("loading", "lazy")
+                },
             src = portfolio.image,
             desc = portfolio.title
         )
@@ -114,7 +118,10 @@ private fun ImageBox(portfolio: Portfolio) {
                 modifier = Modifier
                     .id("linkIcon")
                     .title("Link icon")
-                    .color(Colors.White),
+                    .color(Colors.White)
+                    .attrsModifier {
+                        attr("alt", "Link icon")
+                    },
                 size = IconSize.X2
             )
         }

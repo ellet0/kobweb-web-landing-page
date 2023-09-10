@@ -5,8 +5,10 @@ import com.ahmedhnewa.landingpagedemo.sections.about.AboutSection
 import com.ahmedhnewa.landingpagedemo.sections.achievement.AchievementSection
 import com.ahmedhnewa.landingpagedemo.sections.contact.ContactSection
 import com.ahmedhnewa.landingpagedemo.sections.experience.ExperienceSection
+import com.ahmedhnewa.landingpagedemo.sections.location.LocationSection
 import com.ahmedhnewa.landingpagedemo.sections.main.MainSection
 import com.ahmedhnewa.landingpagedemo.sections.portfolio.PortfolioSection
+import com.ahmedhnewa.landingpagedemo.sections.products.ProductsSection
 import com.ahmedhnewa.landingpagedemo.sections.service.ServiceSection
 import com.ahmedhnewa.landingpagedemo.sections.testimonial.TestimonialSection
 import org.jetbrains.compose.web.dom.Text
@@ -66,6 +68,20 @@ enum class Section(
         subtitle = "Work Experience (fake)",
         path = "#experience",
         content = { ExperienceSection() }
+    ),
+    Products(
+        id = "products",
+        title = "Products",
+        subtitle = "Best Selling Products",
+        path = "#products",
+        content = { ProductsSection() }
+    ),
+    Location(
+        id = "location",
+        title = "Location",
+        subtitle = "Our Location",
+        path = "#location",
+        content = { LocationSection() }
     ),
     Contact(
         id = "contact",

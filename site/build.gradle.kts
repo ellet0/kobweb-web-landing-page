@@ -31,6 +31,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(compose.runtime)
+//                implementation("io.github.cdimascio:dotenv-kotlin:6.4.1")
             }
         }
 

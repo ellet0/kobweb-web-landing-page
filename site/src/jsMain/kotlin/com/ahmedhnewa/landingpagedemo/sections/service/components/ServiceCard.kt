@@ -9,6 +9,7 @@ import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.attrsModifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
@@ -44,8 +45,12 @@ fun ServiceCard(modifier: Modifier = Modifier, service: Service) {
         ) {
             FaIcon(
                 name = service.icon,
-                modifier = Modifier.title(service.iconDesc)
-                    .color(Theme.Primary.rgb),
+                modifier = Modifier
+                    .title(service.iconDesc)
+                    .color(Theme.Primary.rgb)
+                    .attrsModifier {
+                        attr("alt", service.iconDesc)
+                    },
                 style = service.iconCategory,
                 size = IconSize.X2
             )

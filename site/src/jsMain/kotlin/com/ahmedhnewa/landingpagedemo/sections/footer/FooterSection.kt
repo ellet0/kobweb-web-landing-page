@@ -13,6 +13,7 @@ import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.attrsModifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.silk.components.graphics.Image
@@ -47,7 +48,10 @@ private fun FooterContent() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
-            modifier = Modifier.size(100.px),
+            modifier = Modifier.size(100.px)
+                .attrsModifier {
+                    attr("loading", "lazy")
+                },
             src = Res.Assets.Svg.LOGO,
             desc = "Logo Image"
         )
